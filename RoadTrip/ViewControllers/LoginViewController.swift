@@ -69,14 +69,20 @@ class LoginViewController: UIViewController {
                 print("password more than 6 characters")
                 if let password = passwordTextField.text {
                     Auth.auth().createUser(withEmail: email, password: password) {(authResult, error) in
-                        guard let user = authResult?.user else { return }
+//                        guard let user = authResult?.user else { return }
                         if error != nil {
                             self.displayAlert(title: "Error", message: error!.localizedDescription)
                         } else {
                             // success account created
+                            Database.database()
                             self.performSegue(withIdentifier: "loginToMap", sender: nil)
                         }
                     }
+                    
+                    // add users email to the 'Users' in Firebase
+                    let newUsers: [String: String] = ["email": email]
+                    Database.database().reference().child("Users").childByAutoId().setValue(newUsers)
+                    
                 }
             } else {
                 // display alert if password is less than 6 characters long
