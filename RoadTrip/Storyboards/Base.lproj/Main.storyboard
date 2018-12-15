@@ -362,10 +362,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="kAb-Ge-5Vc">
-                                <rect key="frame" x="20" y="84" width="335" height="523"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="553"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQs-8W-yvA">
-                                <rect key="frame" x="20" y="617" width="335" height="30"/>
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="UZA-wl-GzR"/>
+                                </constraints>
                                 <state key="normal" title="Start Route">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -376,13 +379,13 @@
                         </subviews>
                         <color key="backgroundColor" red="0.1176470588" green="0.44705882349999998" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="L5D-Rf-Wk4" firstAttribute="trailing" secondItem="kAb-Ge-5Vc" secondAttribute="trailing" constant="20" id="BjQ-9v-ejN"/>
-                            <constraint firstItem="L5D-Rf-Wk4" firstAttribute="trailing" secondItem="JQs-8W-yvA" secondAttribute="trailing" constant="20" id="L61-Ko-ao3"/>
-                            <constraint firstItem="kAb-Ge-5Vc" firstAttribute="leading" secondItem="L5D-Rf-Wk4" secondAttribute="leading" constant="20" id="XQg-QT-XI4"/>
-                            <constraint firstItem="L5D-Rf-Wk4" firstAttribute="bottom" secondItem="JQs-8W-yvA" secondAttribute="bottom" constant="20" id="pAZ-jM-dfR"/>
-                            <constraint firstItem="JQs-8W-yvA" firstAttribute="top" secondItem="kAb-Ge-5Vc" secondAttribute="bottom" constant="10" id="t5p-Se-QSN"/>
-                            <constraint firstItem="JQs-8W-yvA" firstAttribute="leading" secondItem="L5D-Rf-Wk4" secondAttribute="leading" constant="20" id="tNz-An-z3t"/>
-                            <constraint firstItem="kAb-Ge-5Vc" firstAttribute="top" secondItem="L5D-Rf-Wk4" secondAttribute="top" constant="20" id="zUQ-p0-2Ml"/>
+                            <constraint firstItem="kAb-Ge-5Vc" firstAttribute="top" secondItem="L5D-Rf-Wk4" secondAttribute="top" id="MnT-kA-U68"/>
+                            <constraint firstItem="L5D-Rf-Wk4" firstAttribute="trailing" secondItem="JQs-8W-yvA" secondAttribute="trailing" id="NFB-Cv-l7x"/>
+                            <constraint firstItem="L5D-Rf-Wk4" firstAttribute="bottom" secondItem="JQs-8W-yvA" secondAttribute="bottom" id="TAZ-Ps-afR"/>
+                            <constraint firstItem="kAb-Ge-5Vc" firstAttribute="leading" secondItem="L5D-Rf-Wk4" secondAttribute="leading" id="Xbg-L5-lyP"/>
+                            <constraint firstItem="JQs-8W-yvA" firstAttribute="leading" secondItem="L5D-Rf-Wk4" secondAttribute="leading" id="Zk4-Fr-pJd"/>
+                            <constraint firstItem="kAb-Ge-5Vc" firstAttribute="trailing" secondItem="L5D-Rf-Wk4" secondAttribute="trailing" id="dgI-2z-KRr"/>
+                            <constraint firstItem="JQs-8W-yvA" firstAttribute="top" secondItem="kAb-Ge-5Vc" secondAttribute="bottom" id="y1l-5D-GHz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="L5D-Rf-Wk4"/>
                     </view>

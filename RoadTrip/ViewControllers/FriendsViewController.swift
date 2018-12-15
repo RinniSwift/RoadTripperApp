@@ -168,6 +168,8 @@ class FriendsViewController: UIViewController, UITableViewDataSource, UITableVie
                                 let location = CLLocationCoordinate2D(latitude: lat, longitude: lon)
                                 mapViewController.friendLocation = location
                                 
+                                mapViewController.driverLocation = personLocation
+                                
                             }
                         }
                     }
