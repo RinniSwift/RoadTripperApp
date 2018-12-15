@@ -12,6 +12,7 @@ import FirebaseDatabase
 
 class LoginViewController: UIViewController {
     
+    
     // MARK: Outlets
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -80,7 +81,8 @@ class LoginViewController: UIViewController {
                     }
                     
                     // add users email to the 'Users' in Firebase
-                    let newUsers: [String: String] = ["email": email]
+                   
+                    let newUsers: [String: Any] = ["email": email]
                     Database.database().reference().child("Users").childByAutoId().setValue(newUsers)
                     
                 }

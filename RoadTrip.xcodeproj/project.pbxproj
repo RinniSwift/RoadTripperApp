@@ -23,6 +23,7 @@
 		04CA51CD2196897C00D1144D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04CA51CC2196897C00D1144D /* GoogleService-Info.plist */; };
 		1CE87ADA7E9E0E8905C8E948 /* Pods_RoadTrip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8EFD00E23EF6319D90418B5 /* Pods_RoadTrip.framework */; };
 		A435603421BF2DD1004B1CC5 /* SampleCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A435603321BF2DD1004B1CC5 /* SampleCodeViewController.swift */; };
+		A4592E1A21C4BA540098E7CF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4592E1921C4BA540098E7CF /* MapViewController.swift */; };
 		A49E576E21C1AFBB00501DB8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49E576D21C1AFBB00501DB8 /* ProfileViewController.swift */; };
 		A4BB921421BCFB3E00BD4FBD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BB921321BCFB3E00BD4FBD /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
@@ -57,6 +58,7 @@
 		04CA51CC2196897C00D1144D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		546550177CB3B28198DD1631 /* Pods-RoadTrip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadTrip.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RoadTrip/Pods-RoadTrip.debug.xcconfig"; sourceTree = "<group>"; };
 		A435603321BF2DD1004B1CC5 /* SampleCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCodeViewController.swift; sourceTree = "<group>"; };
+		A4592E1921C4BA540098E7CF /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		A49E576D21C1AFBB00501DB8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A4BB921321BCFB3E00BD4FBD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CE95BF737626226FA7FA61CF /* Pods-RoadTrip.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadTrip.release.xcconfig"; path = "Pods/Target Support Files/Pods-RoadTrip/Pods-RoadTrip.release.xcconfig"; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				A4BB921321BCFB3E00BD4FBD /* LoginViewController.swift */,
 				A435603321BF2DD1004B1CC5 /* SampleCodeViewController.swift */,
 				A49E576D21C1AFBB00501DB8 /* ProfileViewController.swift */,
+				A4592E1921C4BA540098E7CF /* MapViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				048B92F8218B7E7600697AB2 /* LocationSearchTable.swift in Sources */,
 				04452F5421968F6F00BFEA85 /* GFGeoHash.m in Sources */,
 				049FC52E2184F2410039D762 /* ViewController.swift in Sources */,
+				A4592E1A21C4BA540098E7CF /* MapViewController.swift in Sources */,
 				A49E576E21C1AFBB00501DB8 /* ProfileViewController.swift in Sources */,
 				049FC52C2184F2410039D762 /* AppDelegate.swift in Sources */,
 				04452F5121968F6F00BFEA85 /* GeoFire.m in Sources */,

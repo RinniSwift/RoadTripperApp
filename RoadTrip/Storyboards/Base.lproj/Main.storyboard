@@ -49,7 +49,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RoadTrip" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="viewController" id="BYZ-38-t0r" customClass="ViewController" customModule="RoadTrip" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -141,7 +141,7 @@
         <!--Login View Controller-->
         <scene sceneID="rZh-od-rFY">
             <objects>
-                <viewController id="dOZ-f2-OW6" customClass="LoginViewController" customModule="RoadTrip" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginViewController" id="dOZ-f2-OW6" customClass="LoginViewController" customModule="RoadTrip" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1Q2-lu-cXm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -345,12 +345,55 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="pD9-hs-rmc" id="KZk-9x-iCF"/>
+                        <segue destination="VC8-fZ-Gxo" kind="show" identifier="toMapViewController" id="Ij9-g6-pYB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fuT-Hx-LT3" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="24G-7k-xMG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="509.60000000000002" y="959.37031484257875"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="bng-7J-uPu">
+            <objects>
+                <viewController id="VC8-fZ-Gxo" customClass="MapViewController" customModule="RoadTrip" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gfD-i5-lGb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="kAb-Ge-5Vc">
+                                <rect key="frame" x="20" y="84" width="335" height="523"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQs-8W-yvA">
+                                <rect key="frame" x="20" y="617" width="335" height="30"/>
+                                <state key="normal" title="Start Route">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="startButtonTapped:" destination="VC8-fZ-Gxo" eventType="touchUpInside" id="2bC-Jn-BCN"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1176470588" green="0.44705882349999998" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="L5D-Rf-Wk4" firstAttribute="trailing" secondItem="kAb-Ge-5Vc" secondAttribute="trailing" constant="20" id="BjQ-9v-ejN"/>
+                            <constraint firstItem="L5D-Rf-Wk4" firstAttribute="trailing" secondItem="JQs-8W-yvA" secondAttribute="trailing" constant="20" id="L61-Ko-ao3"/>
+                            <constraint firstItem="kAb-Ge-5Vc" firstAttribute="leading" secondItem="L5D-Rf-Wk4" secondAttribute="leading" constant="20" id="XQg-QT-XI4"/>
+                            <constraint firstItem="L5D-Rf-Wk4" firstAttribute="bottom" secondItem="JQs-8W-yvA" secondAttribute="bottom" constant="20" id="pAZ-jM-dfR"/>
+                            <constraint firstItem="JQs-8W-yvA" firstAttribute="top" secondItem="kAb-Ge-5Vc" secondAttribute="bottom" constant="10" id="t5p-Se-QSN"/>
+                            <constraint firstItem="JQs-8W-yvA" firstAttribute="leading" secondItem="L5D-Rf-Wk4" secondAttribute="leading" constant="20" id="tNz-An-z3t"/>
+                            <constraint firstItem="kAb-Ge-5Vc" firstAttribute="top" secondItem="L5D-Rf-Wk4" secondAttribute="top" constant="20" id="zUQ-p0-2Ml"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="L5D-Rf-Wk4"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="kAb-Ge-5Vc" id="f9x-hl-8hm"/>
+                        <outlet property="startRouteButton" destination="JQs-8W-yvA" id="Unq-7x-AFq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UGp-hR-QY6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1349.5999999999999" y="957.57121439280365"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WJm-cl-wMe">

@@ -24,6 +24,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var userLocation = CLLocationCoordinate2D()
     var steps = [MKRoute.Step]()
     var resultsSearchController: UISearchController? = nil
+    var tappedPlus = false
     // cahcing any incoming placemarks
     var selectedPin: MKPlacemark? = nil
     var geoFire: GeoFire!
@@ -50,18 +51,24 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var addFriendButton: UIBarButtonItem!
     @IBAction func addFriendButtonTapped(_ sender: UIBarButtonItem) {
-        print("add freind button tapped")
-                // get the current users email
-        if let email = Auth.auth().currentUser?.email {
-            // get the coordinates of the user
-            let userInRide: [String: Any] = ["email": email, "lat": userLocation.latitude, "lon": userLocation.longitude]
-            Database.database().reference().child("AddUsers").childByAutoId().setValue(userInRide)
-            print("added users location and email to firebase.")
+        if tappedPlus == false {
+            
+            if let email = Auth.auth().currentUser?.email {
+                // get the coordinates of the user
+                let userInRide: [String: Any] = ["email": email, "lat": userLocation.latitude, "lon": userLocation.longitude]
+                Database.database().reference().child("AddUsers").childByAutoId().setValue(userInRide)
+                print("added users location and email to firebase.")
+            }
+            
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let linkingVC = storyBoard.instantiateViewController(withIdentifier: "FriendsViewController")
+            self.navigationController?.present(linkingVC, animated: true, completion: nil)
+            tappedPlus = true
+        } else {
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let linkingVC = storyBoard.instantiateViewController(withIdentifier: "FriendsViewController")
+            self.navigationController?.present(linkingVC, animated: true, completion: nil)
         }
-        
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let linkingVC = storyBoard.instantiateViewController(withIdentifier: "FriendsViewController")
-        self.navigationController?.present(linkingVC, animated: true, completion: nil)
     }
     
     

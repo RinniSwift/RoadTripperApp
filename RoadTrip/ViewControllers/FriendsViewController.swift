@@ -10,16 +10,20 @@ import Foundation
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import MapKit
+import CoreLocation
 
 struct Names {
     var title: String
 }
 
-class FriendsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
+class FriendsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, CLLocationManagerDelegate {
     
     var friends = [DataSnapshot]()
     
     @IBOutlet weak var tableView: UITableView!
+    var locationManager = CLLocationManager()
+    var personLocation = CLLocationCoordinate2D()
     
     
     
@@ -28,13 +32,20 @@ class FriendsViewController: UIViewController, UITableViewDataSource, UITableVie
         
         setUpTableView()
         
-        Database.database().reference().child("Users").observe(.childAdded) { (snapshot) in
+        Database.database().reference().child("AddUsers").observe(.childAdded) { (snapshot) in
             self.friends.append(snapshot)
             self.tableView.reloadData()
         }
         
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
         
-        
+        // update the friends location every 3 seconds in the table view
+        Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { (timer) in
+            self.tableView.reloadData()
+        }
     }
     
     func setUpTableView() {
@@ -95,17 +106,6 @@ class FriendsViewController: UIViewController, UITableViewDataSource, UITableVie
         dismiss(animated: true, completion: nil)
     }
     
-    
-//    func usrNameTextField(textField: UITextField!) {
-//        textField.placeholder = "Name"
-//    }
-//    func latitudeTextField(textField: UITextField) {
-//        textField.placeholder = "Latitude"
-//    }
-//    func longitudeTextField(textField: UITextField) {
-//        textField.placeholder = "Longitude"
-//    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return friends.count
     }
@@ -116,34 +116,72 @@ class FriendsViewController: UIViewController, UITableViewDataSource, UITableVie
         let snapshot = friends[indexPath.row]
         if let friendsDictionary = snapshot.value as? [String: AnyObject] {
             if let email = friendsDictionary["email"] as? String {
-                cell.name.text = email
-                cell.name.textColor = .white
+                if let lat = friendsDictionary["lat"] as? Double {
+                    if let lon = friendsDictionary["lon"] as? Double {
+                        
+                        let personCLLocation = CLLocation(latitude: personLocation.latitude, longitude: personLocation.longitude)
+                        let friendCLLoctaion = CLLocation(latitude: lat, longitude: lon)
+                        
+                        let distance = personCLLocation.distance(from: friendCLLoctaion) / 1000
+                        let roundedDistance = round(distance * 100) / 100
+                        
+                        cell.name.text = "\(email) - \(roundedDistance)km away"
+                        cell.name.textColor = .white
+                    }
+                }
             }
         }
-        
-        
         
         cell.backgroundColor = #colorLiteral(red: 0.1176470588, green: 0.4470588235, blue: 0.4784313725, alpha: 1)
         cell.selectionStyle = .none
         
         return cell
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Selected index: \(indexPath.row)")
+        let snapshot = friends[indexPath.row]
+        performSegue(withIdentifier: "toMapViewController", sender: snapshot)
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            names.remove(at: indexPath.row)
-//
-//            self.tableView.beginUpdates()
-//            self.tableView.deleteRows(at: [indexPath], with: .automatic)
-//            self.tableView.endUpdates()
-//        }
+    
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let coord = manager.location?.coordinate {
+            personLocation = coord
+        }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let mapViewController = segue.destination as? MapViewController {
+            if let snapshot = sender as? DataSnapshot {
+                
+                if let friendsDictionary = snapshot.value as? [String: AnyObject] {
+                    if let email = friendsDictionary["email"] as? String {
+                        if let lat = friendsDictionary["lat"] as? Double {
+                            if let lon = friendsDictionary["lon"] as? Double {
+                                
+                                mapViewController.friendEmail = email
+                                
+                                let location = CLLocationCoordinate2D(latitude: lat, longitude: lon)
+                                mapViewController.friendLocation = location
+                                
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
+    
+    
+    
+    
+    
+    
     
 }
 
