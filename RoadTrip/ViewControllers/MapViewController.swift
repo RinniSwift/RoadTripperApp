@@ -58,7 +58,31 @@ class MapViewController: UIViewController {
         annotation.title = friendEmail
         mapView.addAnnotation(annotation)
         
+        displayDriverAndFriend()
+        
     }
+    
+    func displayDriverAndFriend() {
+//        let driverCLLocation = CLLocation(latitude: driverLocation.latitude, longitude: driverLocation.longitude)
+//        let friendCLLocation = CLLocation(latitude: friendLocation.latitude, longitude: friendLocation.longitude)
+        mapView.removeAnnotations(mapView.annotations)
+        
+        let latDelta = abs(driverLocation.latitude - friendLocation.latitude) * 2 + 0.005
+        let lonDelta = abs(driverLocation.longitude - friendLocation.longitude) * 2 + 0.005
+        let region = MKCoordinateRegion(center: driverLocation, span: MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: lonDelta))
+        mapView.setRegion(region, animated: true)
+        
+        let driverAnno = MKPointAnnotation()
+        driverAnno.coordinate = driverLocation
+        driverAnno.title = "Your Location"
+        mapView.addAnnotation(driverAnno)
+        
+        let friendAnno = MKPointAnnotation()
+        friendAnno.coordinate = friendLocation
+        friendAnno.title = "Friends Location"
+        mapView.addAnnotation(friendAnno)
+    }
+    
     
     
     

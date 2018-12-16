@@ -29,9 +29,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var selectedPin: MKPlacemark? = nil
     var geoFire: GeoFire!
     
-    // bool if user is currently in a road trip                                 !Not used yet!
-    // userInTrip should be true when user adds an friend in the trip
-    var userInTrip = false
+    
 
     // MARK: - Outlets
     @IBOutlet weak var mapView: MKMapView!

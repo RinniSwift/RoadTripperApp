@@ -33,6 +33,15 @@ class FriendsViewController: UIViewController, UITableViewDataSource, UITableVie
         setUpTableView()
         
         Database.database().reference().child("AddUsers").observe(.childAdded) { (snapshot) in
+            // insert code for when there is a driver
+//            if let friendsRequestDict = snapshot.value as? [String: AnyObject] {
+//                if let driverLat = friendsRequestDict["driverLat"] {
+//
+//                }
+//            } else {
+//                self.friends.append(snapshot)
+//                self.tableView.reloadData()
+//            }
             self.friends.append(snapshot)
             self.tableView.reloadData()
         }
@@ -100,7 +109,7 @@ class FriendsViewController: UIViewController, UITableViewDataSource, UITableVie
         if let email = Auth.auth().currentUser?.email {
             Database.database().reference().child("AddUsers").queryOrdered(byChild: "email").queryEqual(toValue: email).observe(.childAdded) { (snapshot) in
                 snapshot.ref.removeValue()
-                Database.database().reference().child("AddUsers").removeAllObservers()
+                Database.database().reference().child("AddUsers").removeAllObservers() 
             }
         }
         dismiss(animated: true, completion: nil)

@@ -10,42 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Profile-->
-        <scene sceneID="jBa-Nk-OAZ">
-            <objects>
-                <viewController id="6J5-1v-p8e" customClass="ProfileViewController" customModule="RoadTrip" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Xgc-Xz-kw1">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xfo-78-G8D">
-                                <rect key="frame" x="8" y="28" width="100" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="EPA-O9-aBa"/>
-                                    <constraint firstAttribute="width" constant="100" id="ePr-0Z-D1x"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="profile"/>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="Xfo-78-G8D" firstAttribute="leading" secondItem="RTt-EP-HjV" secondAttribute="leading" constant="8" id="YEW-yx-fhW"/>
-                            <constraint firstItem="Xfo-78-G8D" firstAttribute="top" secondItem="RTt-EP-HjV" secondAttribute="top" constant="8" id="sZx-JH-Jcz"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="RTt-EP-HjV"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Profile" id="NkQ-yz-7nU">
-                        <barButtonItem key="rightBarButtonItem" title="Log out" id="xWy-bd-Fvv">
-                            <connections>
-                                <action selector="logoutButtonTapped:" destination="6J5-1v-p8e" id="LNF-5w-Tza"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qQk-My-6gE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="510" y="-598"/>
-        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -152,13 +116,13 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="rinniswift@gmail.com" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g9H-47-NQJ">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g9H-47-NQJ">
                                 <rect key="frame" x="20" y="118" width="335" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="220399" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GHk-z3-UxJ">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GHk-z3-UxJ">
                                 <rect key="frame" x="20" y="156" width="335" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -422,7 +386,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="profile" width="512" height="512"/>
         <image name="user" width="100" height="100"/>
     </resources>
 </document>

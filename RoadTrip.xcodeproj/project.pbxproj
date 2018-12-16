@@ -24,7 +24,6 @@
 		1CE87ADA7E9E0E8905C8E948 /* Pods_RoadTrip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8EFD00E23EF6319D90418B5 /* Pods_RoadTrip.framework */; };
 		A435603421BF2DD1004B1CC5 /* SampleCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A435603321BF2DD1004B1CC5 /* SampleCodeViewController.swift */; };
 		A4592E1A21C4BA540098E7CF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4592E1921C4BA540098E7CF /* MapViewController.swift */; };
-		A49E576E21C1AFBB00501DB8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49E576D21C1AFBB00501DB8 /* ProfileViewController.swift */; };
 		A4BB921421BCFB3E00BD4FBD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BB921321BCFB3E00BD4FBD /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,7 +58,6 @@
 		546550177CB3B28198DD1631 /* Pods-RoadTrip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadTrip.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RoadTrip/Pods-RoadTrip.debug.xcconfig"; sourceTree = "<group>"; };
 		A435603321BF2DD1004B1CC5 /* SampleCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCodeViewController.swift; sourceTree = "<group>"; };
 		A4592E1921C4BA540098E7CF /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		A49E576D21C1AFBB00501DB8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A4BB921321BCFB3E00BD4FBD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CE95BF737626226FA7FA61CF /* Pods-RoadTrip.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadTrip.release.xcconfig"; path = "Pods/Target Support Files/Pods-RoadTrip/Pods-RoadTrip.release.xcconfig"; sourceTree = "<group>"; };
 		F8EFD00E23EF6319D90418B5 /* Pods_RoadTrip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoadTrip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,13 +117,12 @@
 		047C602A21A0DF1000E517B3 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				A4BB921321BCFB3E00BD4FBD /* LoginViewController.swift */,
 				049FC52D2184F2410039D762 /* ViewController.swift */,
 				048B92F7218B7E7600697AB2 /* LocationSearchTable.swift */,
 				04B8118321B8BCBF0014DE8F /* FriendsViewController.swift */,
-				A4BB921321BCFB3E00BD4FBD /* LoginViewController.swift */,
-				A435603321BF2DD1004B1CC5 /* SampleCodeViewController.swift */,
-				A49E576D21C1AFBB00501DB8 /* ProfileViewController.swift */,
 				A4592E1921C4BA540098E7CF /* MapViewController.swift */,
+				A435603321BF2DD1004B1CC5 /* SampleCodeViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -316,7 +313,6 @@
 				04452F5421968F6F00BFEA85 /* GFGeoHash.m in Sources */,
 				049FC52E2184F2410039D762 /* ViewController.swift in Sources */,
 				A4592E1A21C4BA540098E7CF /* MapViewController.swift in Sources */,
-				A49E576E21C1AFBB00501DB8 /* ProfileViewController.swift in Sources */,
 				049FC52C2184F2410039D762 /* AppDelegate.swift in Sources */,
 				04452F5121968F6F00BFEA85 /* GeoFire.m in Sources */,
 				04452F5221968F6F00BFEA85 /* GFGeoHashQuery.m in Sources */,
@@ -476,11 +472,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sarin.RoadTrip;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rinni.RoadTrip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "RoadTrip/RoadTrip-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -497,11 +493,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sarin.RoadTrip;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rinni.RoadTrip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "RoadTrip/RoadTrip-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
